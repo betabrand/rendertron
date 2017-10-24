@@ -156,14 +156,14 @@ class Renderer {
 
       Emulation.virtualTimeBudgetExpired(pageReady);
 
-      // Set a hard limit of 10 seconds.
+      // Set a hard limit of 120 seconds.
       let maxTimeout = setTimeout(() => {
-        console.log(`10 second time budget limit reached.
+        console.log(`120 second time budget limit reached.
           Attempted rendering: ${url}
           Page load event fired: ${pageLoadEventFired}
           Outstanding network requests: ${outstandingRequests.size}`);
         pageReady();
-      }, 10000);
+      }, 120000);
 
       // Listen for the message that signals that rendering event was fired.
       Console.messageAdded((event) => {
